@@ -20,9 +20,9 @@ jobs:
       - uses: SebRollen/toml-action@v1.0.1
         id: version
         with:
-          file: 'src-tauri/Cargo.toml'
-          field: 'package.version'
-      #- run: echo ${{steps.version.outputs.value}}
+          file: 'Cargo.toml'
+          field: 'workspace.package.version'
+      - run: echo ${{steps.version.outputs.value}}
       - name: setup rust
         uses: dtolnay/rust-toolchain@stable
       - name: Install Vulkan SDK and Runtime
@@ -44,5 +44,5 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: |
-            src-tauri/target/release/curses.exe
-            src-tauri/target/release/bundle/msi/curses_*_x64_en-US.msi
+            target/release/curses.exe
+            target/release/bundle/msi/curses_${{steps.version.outputs.value}}_x64_en-US.msi
