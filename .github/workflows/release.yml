@@ -26,7 +26,7 @@ jobs:
       - name: setup rust
         uses: dtolnay/rust-toolchain@stable
       - name: Install Vulkan SDK and Runtime
-        uses: jakoch/install-vulkan-sdk-action@v1.1.1
+        uses: jakoch/install-vulkan-sdk-action@v1.2.5
       - name: setup pnpm deps
         run: pnpm i --frozen-lockfile
       - name: compile
